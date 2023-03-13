@@ -116,12 +116,17 @@ const iconsArray = [
 // RIFERIMENTI DOM
 
 const cardContainerDom = document.getElementById('cardContainer');
+const typeSelectDom = document.getElementById('typeSelect');
 
 
 
+switchRendering(typeSelectDom.value);
 
-renderCards(iconsArray);
 
+
+typeSelectDom.addEventListener('change', function(){
+    switchRendering(typeSelectDom.value);
+})
 
 
 
@@ -141,5 +146,22 @@ function renderCards(arrayOfObjects){
         </div>
         `
     });
-    
+}
+
+function switchRendering(value){
+    switch(value){
+
+        case 'all':
+            renderCards(iconsArray);
+            break;
+        case 'animal':
+            renderCards(iconsArray.filter(element => element.type == 'animal'));
+            break;
+        case 'vegetable':
+            renderCards(iconsArray.filter(element => element.type == 'vegetable'));
+            break;
+        case 'user':
+            renderCards(iconsArray.filter(element => element.type == 'user'));
+            break;
+    }
 }
