@@ -177,6 +177,9 @@ function switchRendering(value){
     }
 }
 
+//  Funzione per generare dinamicamente le opzioni all'interno della select con
+//  id = "typleSelect" in base al numero di valori differenti della key 'type'
+//  negli oggetti contenuti nell'array dato in ingresso
 function createOptions(arrayOfObjects){
     typeSelectDom.innerHTML = '';
     typeSelectDom.innerHTML += `<option value="all">All</option>`;
