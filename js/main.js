@@ -200,8 +200,32 @@ function randomNumber(min, max){
 
 //  Funzione per generare un numero esadecimale casuale
 function generateRandomHexNum(){
-    let newHexNum = randomNumber(0, 15).toString(16);
-    return newHexNum;
+    let newHexNum = randomNumber(0, 15);
+    if(newHexNum >= 0 && newHexNum <= 9){
+        return newHexNum;
+        } else {
+            switch(newHexNum){
+                case 10:
+                    newHexNum = 'a';
+                    break;
+                case 11:
+                    newHexNum = 'b';
+                    break;
+                case 12:
+                    newHexNum = 'c';
+                    break;
+                case 13:
+                    newHexNum = 'd';
+                    break;
+                case 14:
+                    newHexNum = 'e';
+                    break;
+                case 15:
+                    newHexNum = 'f';
+                    break;
+            }
+        }
+        return newHexNum;
 }
 
 //  Funzione per generare una stringa di colore esadecimale casuale
