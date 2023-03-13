@@ -118,7 +118,12 @@ const iconsArray = [
 const cardContainerDom = document.getElementById('cardContainer');
 const typeSelectDom = document.getElementById('typeSelect');
 
-
+//  Ciclo l'array e genero per ogni elemento una stringa di 
+//  colore casuale in formato esadecimale da assegnare al valore
+//  della key 'color'
+iconsArray.forEach(element => {
+    element.color = generateRandomHexColor();
+})
 
 switchRendering(typeSelectDom.value);
 
@@ -130,8 +135,10 @@ typeSelectDom.addEventListener('change', function(){
 
 
 
-// FUNZIONI
+//  FUNZIONI
 
+//  Funzione per stampare a schermo N schede ricevendo in ingresso
+//  l'array di oggetti con le opportune coppie chiave/valore
 function renderCards(arrayOfObjects){
     cardContainerDom.innerHTML = '';
     arrayOfObjects.forEach(element => {
@@ -148,9 +155,11 @@ function renderCards(arrayOfObjects){
     });
 }
 
+//  Funzione per filtrare l'array contenente gli oggetti e stampare
+//  a schermo solo gli oggetti che contengolo il valore opportuno nella
+//  key 'type'
 function switchRendering(value){
     switch(value){
-
         case 'all':
             renderCards(iconsArray);
             break;
@@ -164,4 +173,26 @@ function switchRendering(value){
             renderCards(iconsArray.filter(element => element.type == 'user'));
             break;
     }
+}
+
+//  Funzione per generare numeri casuali in un range di min e max
+function randomNumber(min, max){
+    const number = Math.floor(Math.random() * (max - min + 1)) + min;
+    return number;
+}
+
+//  Funzione per generare un numero esadecimale casuale
+function generateRandomHexNum(){
+    let newHexNum = randomNumber(0, 15).toString(16);
+    console.log("esadecimale",newHexNum);
+    return newHexNum;
+}
+
+//  Funzione per generare una stringa di colore esadecimale casuale
+function generateRandomHexColor(){
+    let newHexColor = '#';
+    for(i=0; i < 6; i++){
+        newHexColor += generateRandomHexNum();
+    }
+    return newHexColor;
 }
