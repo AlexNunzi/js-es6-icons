@@ -125,15 +125,17 @@ iconsArray.forEach(element => {
     element.color = generateRandomHexColor();
 })
 
+//  Inizializzazione delle opzioni della select tramite i diversi
+//  valori della key type degli oggetti contenuti nell'array fornito
+createOptions(iconsArray);
+
+//  Inizializzazione delle card all'interno dell'elemento html
+//  con id="cardContainer" in base al'opzione della select selezionata
 switchRendering(typeSelectDom.value);
-
-
 
 typeSelectDom.addEventListener('change', function(){
     switchRendering(typeSelectDom.value);
 })
-
-
 
 //  FUNZIONI
 
@@ -175,6 +177,18 @@ function switchRendering(value){
     }
 }
 
+function createOptions(arrayOfObjects){
+    typeSelectDom.innerHTML = '';
+    typeSelectDom.innerHTML += `<option value="all">All</option>`;
+    let options = [];
+    arrayOfObjects.forEach(element => {
+        if(!options.includes(element.type)){
+            options.push(element.type);
+            typeSelectDom.innerHTML += `<option value="${element.type}">${upperTheFirst(element.type)}</option>`;
+        }
+    })
+}
+
 //  Funzione per generare numeri casuali in un range di min e max
 function randomNumber(min, max){
     const number = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -184,7 +198,6 @@ function randomNumber(min, max){
 //  Funzione per generare un numero esadecimale casuale
 function generateRandomHexNum(){
     let newHexNum = randomNumber(0, 15).toString(16);
-    console.log("esadecimale",newHexNum);
     return newHexNum;
 }
 
@@ -195,4 +208,15 @@ function generateRandomHexColor(){
         newHexColor += generateRandomHexNum();
     }
     return newHexColor;
+}
+
+//  Funzione che data una parola la restituisce formattata con la prima
+//  lettera maiuscola e le altre minuscole
+function upperTheFirst(word){
+    let newWord = '';
+    newWord += word[0].toUpperCase();
+    for(i = 1; i < word.length; i++){
+        newWord += word[i].toLocaleLowerCase();
+    }
+    return newWord;
 }
