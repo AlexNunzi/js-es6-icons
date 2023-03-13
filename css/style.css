@@ -1,0 +1,37 @@
+
+:root{
+    --soft-blue: #28B1DE;
+    --bg-gray: #DDDDDD;
+    --card-gray: #F5F5F5;
+}
+
+
+
+
+
+
+
+header{
+    height: 70px;
+    color: var(--soft-blue);
+}
+
+main{
+    height: calc(100vh - 70px);
+    background-color: var(--bg-gray);
+}
+
+#mainHead{
+    height: 70px;
+    background-color: var(--soft-blue);
+}
+
+.card{
+    background-color: var(--card-gray);
+    max-width: 250px;
+    box-shadow: 2px 2px 0px 0px #939393;
+}
+
+.card i{
+    font-size: 2rem;
+}
