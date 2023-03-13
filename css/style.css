@@ -37,3 +37,20 @@ header{
 .card p{
     font-size: 0.75rem;
 }
+
+.column{
+    width: 100%;
+}
+
+@media screen and (min-width: 768px){
+    .column{
+        width: calc(100% / 3);
+    }
+}
+
+@media screen and (min-width: 992px){
+    .column{
+        width: calc(100% / 5);
+    }
+}
+

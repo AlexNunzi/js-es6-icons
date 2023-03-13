@@ -145,7 +145,7 @@ function renderCards(arrayOfObjects){
     cardContainerDom.innerHTML = '';
     arrayOfObjects.forEach(element => {
         cardContainerDom.innerHTML += `
-        <div class="col-12 col-md-4 col-lg-2 mb-3 mb-md-5">
+        <div class="column mb-3 mb-md-5 pe-md-3 ps-md-3">
             <div class="card d-flex justify-content-center align-items-center rounded-3 m-auto">
                 <div class="card-body text-center">
                     <i class="${element.prefix}solid ${element.prefix}${element.name}" style="color: ${element.color}"></i>
