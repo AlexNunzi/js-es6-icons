@@ -35,3 +35,7 @@ main{
 .card i{
     font-size: 2rem;
 }
+
+.card p{
+    font-size: 0.75rem;
+}
